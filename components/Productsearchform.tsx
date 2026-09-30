@@ -9,9 +9,7 @@ type ProductSearchFormProps = {
 onSearch: (query: SearchQuery) => Promise<void>;
 };
 
-export default function ProductSearchForm({
-onSearch,
-}: ProductSearchFormProps) {
+export default function ProductSearchForm({onSearch,}: ProductSearchFormProps) {
 const {
 register,
 handleSubmit,
@@ -29,7 +27,7 @@ noValidate
 style={{
 display: "grid",
 gridTemplateColumns: "minmax(220px, 1fr) 140px 180px auto",
-alignItems: "end",
+alignItems: "start",
 gap: "1rem",
 padding: "1.5rem",
 background: "#ffffff",
@@ -69,7 +67,13 @@ color: "#334155",
     />
   </div>
 
-  <div style={{ display: "grid", gap: "0.5rem" }}>
+  <div style={{
+    display: "grid",
+    gap: "0.5rem",
+    alignContent: "start",
+  }}
+>
+  
     <label
       htmlFor="limit"
       style={{
@@ -119,7 +123,12 @@ color: "#334155",
     </span>
   </div>
 
-  <div style={{ display: "grid", gap: "0.5rem" }}>
+  <div style={{
+    display: "grid",
+    gap: "0.5rem",
+    alignContent: "start",
+  }}
+>
     <label
       htmlFor="sortBy"
       style={{
@@ -156,26 +165,27 @@ color: "#334155",
 </select>
   </div>
 
-  <button
-    type="submit"
-    disabled={isSubmitting}
-    style={{
-      height: "44px",
-      padding: "0 1.5rem",
-      border: 0,
-      borderRadius: "10px",
-      background: isSubmitting ? "#94a3b8" : "#2563eb",
-      color: "#fff",
-      font: "inherit",
-      fontWeight: 700,
-      cursor: isSubmitting ? "wait" : "pointer",
-      boxShadow: isSubmitting
-        ? "none"
-        : "0 4px 12px rgba(37, 99, 235, 0.25)",
-      transition: "all 150ms ease",
-      whiteSpace: "nowrap",
-    }}
-  >
+<button
+  type="submit"
+  disabled={isSubmitting}
+  style={{
+    alignSelf: "end",
+    height: "44px",
+    padding: "0 1.5rem",
+    border: 0,
+    borderRadius: "10px",
+    background: isSubmitting ? "#94a3b8" : "#2563eb",
+    color: "#fff",
+    font: "inherit",
+    fontWeight: 700,
+    cursor: isSubmitting ? "wait" : "pointer",
+    boxShadow: isSubmitting
+      ? "none"
+      : "0 4px 12px rgba(37, 99, 235, 0.25)",
+    transition: "all 150ms ease",
+    whiteSpace: "nowrap",
+  }}
+>
     {isSubmitting ? "กำลังค้นหา..." : "ค้นหา"}
   </button>
 </form>
